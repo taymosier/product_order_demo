@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Grid, Row} from 'react-bootstrap';
+import { Col, Fade, Grid, Row} from 'react-bootstrap';
 
 export class OrderSummary extends Component {
   constructor(props){
@@ -10,40 +10,48 @@ export class OrderSummary extends Component {
   }
   render(){
     return(
-      <Grid fluid md={6} className="orderSummary">
-           <Row md={5} >
-             <Col md={4} className="labels">
-               <Row md={3} className="col-md-offset-1">
-                 <p md={3} className="subTotalLabel ">Subtotal:</p>
-               </Row>
-               <Row className="col-md-offset-1">
-                 <p md={3} className="taxLabel ">Tax:</p>
-               </Row>
-               <Row className="col-md-offset-1">
-                 <p md={3} className="totalLabel ">Total:</p>
-               </Row>
-             </Col>
-             <Col className="costs" md={1} >
-               <Row className="subTotal">
-                 ${this.subtotal}
-               </Row>
-               <Row className="tax">
-                 ${this.tax}
-               </Row>
-               <Row className="total">
-                 ${this.total}
-               </Row>
-             </Col>
-             <Col md={6} className="messages ">
-               <Row className="col-md-offset-1 nopadding messageOrderSubmitted">
-                 Order Submitted!
-               </Row>
-               <Row className="col-md-offset-1 nopadding messageThankYou">
-                 Thank You!
-               </Row>
-             </Col>
-           </Row>
-         </Grid>
+      <Fade in >
+        <Grid fluid lg={6} md={6} sm={12} xs={10} xsOffset={1} className="orderSummary">
+             <Row md={12} sm={12} xs={12}>
+
+               {/* Labels */}
+               <Col lg={2} md={4} sm={4} xs={2} xsOffset={1} className="labels">
+                 <Row >
+                   <p md={3} className="subTotalLabel ">Subtotal:</p>
+                 </Row>
+                 <Row mdOffset={1}>
+                   <p className="taxLabel ">Tax:</p>
+                 </Row>
+                 <Row mdOffset={1}>
+                   <p className="totalLabel ">Total:</p>
+                 </Row>
+               </Col>
+
+               {/* Totals */}
+               <Col className="costs" lg={2} md={4} sm={4} xs={4} xsOffset={0}>
+                 <Row className="subTotal">
+                   ${this.subtotal}
+                 </Row>
+                 <Row className="tax" >
+                   ${this.tax}
+                 </Row>
+                 <Row className="total" >
+                   ${this.total}
+                 </Row>
+               </Col>
+
+               {/* Confirmation messages */}
+               <Col lg={6} md={5} sm={4} xs={3} xsOffset={1} className="messages ">
+                 <Row className="col-md-offset-1 nopadding messageOrderSubmitted">
+                   Order Submitted!
+                 </Row>
+                 <Row className="col-md-offset-1 nopadding messageThankYou">
+                   Thank You!
+                 </Row>
+               </Col>
+             </Row>
+           </Grid>
+         </Fade>
     );
   }
 }

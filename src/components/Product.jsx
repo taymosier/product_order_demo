@@ -38,7 +38,7 @@ export class Product extends Component {
         </Panel.Heading>
 
         <Panel.Body >
-          <Image md={3} className="productImage" src={require(`../images/${this.product.slice(0,this.product.length-1)}.jpg`)} thumbnail/>
+          <Image  md={3} className="productImage" src={require(`../images/${this.product.slice(0,this.product.length-1)}.jpg`)} thumbnail/>
           <FormGroup
             controlId={controlIdText.toString()}
             md={3}

@@ -4,7 +4,9 @@ import { PageHeader } from 'react-bootstrap';
 export class PageBanner extends Component {
   render(){
     return(
-      <PageHeader className="text-center">
+      <PageHeader
+        className="text-center"
+      >
           Product Order System
       </PageHeader>
     );

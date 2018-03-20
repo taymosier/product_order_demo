@@ -42,16 +42,16 @@ export class Product extends Component {
           <FormGroup
             controlId={controlIdText.toString()}
             md={3}
+            sm={12}
+            xs={12}
           >
             <ControlLabel
-              md={3}
               className="quantityLabel"
               >
                 Quantity:
             </ControlLabel>
             <FormControl
               type="number"
-              md={8}
               min="0"
               max="100"
               placeholder=""

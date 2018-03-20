@@ -21,6 +21,10 @@ function validateInputs(plates, napkins, cups){
   return false;
 }
 
+export function getScreenWidth(){
+  return document.getElementsByTagName('body')[0].clientWidth;
+}
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -71,17 +75,18 @@ class App extends Component {
   }
 
   render() {
+    console.log(getScreenWidth());
     return (
       <div className="App ">
         <PageBanner />
         <Grid fluid >
-          <Row className=" show-grid col-md-offset-4">
-            <Col md={6}>
+          <Row className=" show-grid">
+            <Col lg={6} md={6} sm={6} xs={12} mdOffset={3} smOffset={3}>
               <Instructions />
             </Col>
           </Row>
-          <Row className="show-grid col-md-offset-4" >
-            <Col md={6}>
+          <Row className="show-grid " >
+            <Col lg={6} md={6} sm={6} xs={12} mdOffset={3} smOffset={3}>
               <Product product="plates" quantity="18" price="1.50" passQuantityToApp={this.updateQuantity}/>
               {this.state.submitted && this.state.plates < 1
                 ? <Label bsStyle="danger">Quantity Required</Label>
@@ -89,18 +94,18 @@ class App extends Component {
               }
             </Col>
           </Row>
-          <Row className="show-grid col-md-offset-4">
-            <Col md={6}>
+          <Row className="show-grid">
+            <Col lg={6} md={6} sm={6} xs={12} mdOffset={3} smOffset={3}>
               <Product product="napkins" quantity="24" price="1.59" passQuantityToApp={this.updateQuantity}/>
             </Col>
           </Row>
-          <Row className="show-grid col-md-offset-4">
-            <Col md={6}>
+          <Row className="show-grid">
+            <Col lg={6} md={6} sm={6} xs={12} mdOffset={3} smOffset={3}>
               <Product product="cups" quantity="30" price="3.79" passQuantityToApp={this.updateQuantity}/>
             </Col>
           </Row>
-          <Row className="show-grid col-md-offset-4">
-            <Col md={6}>
+          <Row className="show-grid">
+            <Col lg={6} md={6} sm={6} xs={12} mdOffset={3} smOffset={3}>
               <Panel >
                 { this.state.submitted && this.state.total > 0
                   ? <OrderSummary subtotal={this.state.subtotal} tax={this.state.tax} total={this.state.total} />
